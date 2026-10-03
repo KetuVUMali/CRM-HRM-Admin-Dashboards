@@ -1,0 +1,218 @@
+/* ==========================================================================
+   THEMES — token system (v2)
+   5 named palettes + a light/dark "mode" concept layered on top via the
+   Appearance panel (see components.js applyStoredTheme / initAppearance).
+   Switch with document.documentElement's data-theme attribute.
+   "professional-blue" is the default / fallback.
+   ========================================================================== */
+
+:root,
+[data-theme="professional-blue"] {
+  --brand: #465fff;
+  --brand-dark: #3346d1;
+  --brand-light: #eef1ff;
+  --brand-contrast: #ffffff;
+  --accent: #f59e0b;
+  --accent-light: #fef3e2;
+
+  --success: #12b76a;
+  --success-light: #e7f8ef;
+  --warning: #f79009;
+  --warning-light: #fef3e6;
+  --danger: #f04438;
+  --danger-light: #feeceb;
+  --info: #0ba5ec;
+  --info-light: #e6f7fd;
+
+  --body-bg: #f4f6fb;
+  --surface: #ffffff;
+  --surface-2: #f8f9fc;
+  --border-color: #e6e8f0;
+  --border-strong: #d0d5e2;
+
+  --text-primary: #101828;
+  --text-secondary: #475467;
+  --text-muted: #98a2b3;
+  --text-on-brand: #ffffff;
+
+  --sidebar-bg: #ffffff;
+  --sidebar-text: #475467;
+  --sidebar-text-muted: #98a2b3;
+  --sidebar-active-bg: #eef1ff;
+  --sidebar-active-text: #465fff;
+  --sidebar-border: #e6e8f0;
+  --sidebar-brand-accent: #465fff;
+
+  --header-bg: #ffffff;
+  --scheme: light;
+  --border-width: 1px;
+  --radius-scale: 1;
+}
+
+[data-theme="modern-purple"] {
+  --brand: #8b5cf6;
+  --brand-dark: #6d3fd1;
+  --brand-light: #f3eefe;
+  --brand-contrast: #ffffff;
+  --accent: #ec4899;
+  --accent-light: #fdeef5;
+
+  --success: #12b76a;
+  --success-light: #e7f8ef;
+  --warning: #f79009;
+  --warning-light: #fef3e6;
+  --danger: #f04438;
+  --danger-light: #feeceb;
+  --info: #0ea5e9;
+  --info-light: #e5f6fd;
+
+  --body-bg: #f7f5fd;
+  --surface: #ffffff;
+  --surface-2: #faf8fe;
+  --border-color: #ece7f9;
+  --border-strong: #d8cff2;
+
+  --text-primary: #1e1b2e;
+  --text-secondary: #57516d;
+  --text-muted: #9691ab;
+  --text-on-brand: #ffffff;
+
+  --sidebar-bg: #ffffff;
+  --sidebar-text: #57516d;
+  --sidebar-text-muted: #9691ab;
+  --sidebar-active-bg: #f3eefe;
+  --sidebar-active-text: #8b5cf6;
+  --sidebar-border: #ece7f9;
+  --sidebar-brand-accent: #8b5cf6;
+
+  --header-bg: #ffffff;
+  --scheme: light;
+  --border-width: 1px;
+  --radius-scale: 1;
+}
+
+[data-theme="emerald"] {
+  --brand: #059669;
+  --brand-dark: #047857;
+  --brand-light: #e7f8f1;
+  --brand-contrast: #ffffff;
+  --accent: #ca8a04;
+  --accent-light: #fdf6e0;
+
+  --success: #22a35d;
+  --success-light: #e9f9ef;
+  --warning: #d97706;
+  --warning-light: #fdf1e0;
+  --danger: #dc2626;
+  --danger-light: #fdecec;
+  --info: #0891b2;
+  --info-light: #e3f6fa;
+
+  --body-bg: #f5f9f7;
+  --surface: #ffffff;
+  --surface-2: #f7fbf9;
+  --border-color: #e1ede7;
+  --border-strong: #c8ddd2;
+
+  --text-primary: #16241d;
+  --text-secondary: #4b6156;
+  --text-muted: #86988e;
+  --text-on-brand: #ffffff;
+
+  --sidebar-bg: #ffffff;
+  --sidebar-text: #4b6156;
+  --sidebar-text-muted: #86988e;
+  --sidebar-active-bg: #e7f8f1;
+  --sidebar-active-text: #059669;
+  --sidebar-border: #e1ede7;
+  --sidebar-brand-accent: #059669;
+
+  --header-bg: #ffffff;
+  --scheme: light;
+  --border-width: 1px;
+  --radius-scale: 1;
+}
+
+[data-theme="dark-saas"] {
+  --brand: #6d83f7;
+  --brand-dark: #5567d6;
+  --brand-light: #1c2340;
+  --brand-contrast: #0b0e19;
+  --accent: #f5a623;
+  --accent-light: #3a2d14;
+
+  --success: #3fd68f;
+  --success-light: #113526;
+  --warning: #f5a623;
+  --warning-light: #3a2d14;
+  --danger: #f16063;
+  --danger-light: #3a1a1c;
+  --info: #4cc2f1;
+  --info-light: #123342;
+
+  --body-bg: #0b0e14;
+  --surface: #12151f;
+  --surface-2: #0e1119;
+  --border-color: #1e2430;
+  --border-strong: #2a3140;
+
+  --text-primary: #eef1f7;
+  --text-secondary: #aab1c4;
+  --text-muted: #6c7488;
+  --text-on-brand: #ffffff;
+
+  --sidebar-bg: #0d1017;
+  --sidebar-text: #aab1c4;
+  --sidebar-text-muted: #5d6478;
+  --sidebar-active-bg: #1c2340;
+  --sidebar-active-text: #8fa0ff;
+  --sidebar-border: #1a1f2b;
+  --sidebar-brand-accent: #6d83f7;
+
+  --header-bg: #12151f;
+  --scheme: dark;
+  --border-width: 1px;
+  --radius-scale: 1;
+}
+
+[data-theme="high-contrast"] {
+  --brand: #0047ab;
+  --brand-dark: #00327a;
+  --brand-light: #d6e4ff;
+  --brand-contrast: #ffffff;
+  --accent: #7a2e00;
+  --accent-light: #ffe4d1;
+
+  --success: #006400;
+  --success-light: #d9f2d9;
+  --warning: #7a4b00;
+  --warning-light: #fff0cc;
+  --danger: #a30000;
+  --danger-light: #ffd9d9;
+  --info: #003a7a;
+  --info-light: #d9e8ff;
+
+  --body-bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f2f2f2;
+  --border-color: #000000;
+  --border-strong: #000000;
+
+  --text-primary: #000000;
+  --text-secondary: #1a1a1a;
+  --text-muted: #3d3d3d;
+  --text-on-brand: #ffffff;
+
+  --sidebar-bg: #ffffff;
+  --sidebar-text: #000000;
+  --sidebar-text-muted: #3d3d3d;
+  --sidebar-active-bg: #0047ab;
+  --sidebar-active-text: #ffffff;
+  --sidebar-border: #000000;
+  --sidebar-brand-accent: #0047ab;
+
+  --header-bg: #ffffff;
+  --scheme: light;
+  --border-width: 2px;
+  --radius-scale: .4;
+}

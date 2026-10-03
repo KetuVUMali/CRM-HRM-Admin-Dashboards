@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expenses — NimbusHR</title>
+<link rel="icon" href="data:,">
+<link href="assets/vendor/fonts/inter.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/vendor/fontawesome/all.min.css" rel="stylesheet">
+<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="assets/css/themes.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-shell" id="appShell">
+  <aside class="app-sidebar" id="appSidebar"></aside>
+  <div class="sidebar-backdrop"></div>
+  <div class="app-main">
+    <header class="app-header" id="appHeader"></header>
+    <main class="app-content">
+      <div class="d-flex justify-content-between flex-wrap gap-2" id="pageHeaderMount"></div>
+      <div id="kpiMount" class="row g-3 mb-4"></div>
+      <div id="filterMount" class="filter-bar mb-3"></div>
+      <div class="hrm-card">
+        <div class="table-wrap"><table class="hrm-table">
+          <thead><tr><th>Claim ID</th><th>Employee</th><th>Category</th><th>Date</th><th>Amount</th><th>Description</th><th>Receipt</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="expTbody"></tbody>
+        </table></div>
+        <div id="expPagination" class="px-3 pb-3"></div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div class="modal fade" id="expenseModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Submit Expense Claim</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <form id="expenseForm">
+          <div class="mb-3"><label class="form-label">Category</label><select class="form-select" id="expCategory"></select></div>
+          <div class="mb-3"><label class="form-label">Date</label><input type="date" class="form-control" id="expDate" value="2026-09-19" required></div>
+          <div class="mb-3"><label class="form-label">Amount (₹)</label><input type="number" class="form-control" id="expAmount" min="1" required></div>
+          <div class="mb-3"><label class="form-label">Description</label><textarea class="form-control" id="expDesc" rows="2" required></textarea></div>
+          <div class="mb-3"><label class="form-label">Receipt Upload</label><input type="file" class="form-control" id="expReceipt"></div>
+        </form>
+      </div>
+      <div class="modal-footer"><button class="btn btn-light-2" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" id="saveExpenseBtn">Submit Claim</button></div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+  renderSidebar("expenses.html");
+  renderHeader("Expenses", ["Dashboard", "Expenses"]);
+</script>
+<script src="assets/js/expenses.js"></script>
+</body>
+</html>

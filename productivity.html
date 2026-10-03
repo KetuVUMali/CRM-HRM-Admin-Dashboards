@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tasks &amp; Timesheet — NimbusHR</title>
+<link rel="icon" href="data:,">
+<link href="assets/vendor/fonts/inter.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/vendor/fontawesome/all.min.css" rel="stylesheet">
+<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="assets/css/themes.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-shell" id="appShell">
+  <aside class="app-sidebar" id="appSidebar"></aside>
+  <div class="sidebar-backdrop"></div>
+  <div class="app-main">
+    <header class="app-header" id="appHeader"></header>
+    <main class="app-content">
+      <div class="d-flex justify-content-between flex-wrap gap-2" id="pageHeaderMount"></div>
+
+      <ul class="nav nav-tabs mb-3 flex-nowrap overflow-auto">
+        <li class="nav-item"><button class="nav-link active" data-tab="tasks">Tasks</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="timesheet">Timesheet</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="wfh">WFH Requests</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="travel">Travel Requests</button></li>
+      </ul>
+
+      <div id="prodTabContent"></div>
+    </main>
+  </div>
+</div>
+
+<div class="modal fade" id="taskModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Assign Task</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <form id="taskForm">
+          <div class="mb-3"><label class="form-label">Task</label><input class="form-control" id="taskTitle" required></div>
+          <div class="mb-3"><label class="form-label">Assign To</label><select class="form-select" id="taskAssignee"></select></div>
+          <div class="row g-3">
+            <div class="col-6"><label class="form-label">Priority</label><select class="form-select" id="taskPriority"><option>Low</option><option>Medium</option><option selected>High</option><option>Urgent</option></select></div>
+            <div class="col-6"><label class="form-label">Due Date</label><input type="date" class="form-control" id="taskDue" value="2026-09-30" required></div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer"><button class="btn btn-light-2" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" id="saveTaskBtn">Assign Task</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="wfhModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Request Work From Home</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <form id="wfhForm">
+          <div class="mb-3"><label class="form-label">Date</label><input type="date" class="form-control" id="wfhDate" value="2026-09-25" required></div>
+          <div class="mb-3"><label class="form-label">Work Location</label><input class="form-control" id="wfhLocation" placeholder="e.g. Home - Bengaluru" required></div>
+          <div class="mb-3"><label class="form-label">Reason</label><textarea class="form-control" id="wfhReason" rows="2" required></textarea></div>
+        </form>
+      </div>
+      <div class="modal-footer"><button class="btn btn-light-2" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" id="saveWfhBtn">Submit Request</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="travelModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Request Business Travel</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <form id="travelForm">
+          <div class="mb-3"><label class="form-label">Destination</label><input class="form-control" id="travelDest" required></div>
+          <div class="row g-3 mb-3">
+            <div class="col-6"><label class="form-label">Travel Date</label><input type="date" class="form-control" id="travelStart" value="2026-10-01" required></div>
+            <div class="col-6"><label class="form-label">Return Date</label><input type="date" class="form-control" id="travelEnd" value="2026-10-03" required></div>
+          </div>
+          <div class="mb-3"><label class="form-label">Purpose</label><input class="form-control" id="travelPurpose" required></div>
+          <div class="mb-3"><label class="form-label">Estimated Cost (₹)</label><input type="number" class="form-control" id="travelCost" min="0" required></div>
+        </form>
+      </div>
+      <div class="modal-footer"><button class="btn btn-light-2" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" id="saveTravelBtn">Submit Request</button></div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+  renderSidebar("productivity.html");
+  renderHeader("Tasks & Timesheet", ["Dashboard", "Tasks & Timesheet"]);
+</script>
+<script src="assets/js/productivity.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Performance — NimbusHR</title>
+<link rel="icon" href="data:,">
+<link href="assets/vendor/fonts/inter.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/vendor/fontawesome/all.min.css" rel="stylesheet">
+<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="assets/css/themes.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-shell" id="appShell">
+  <aside class="app-sidebar" id="appSidebar"></aside>
+  <div class="sidebar-backdrop"></div>
+  <div class="app-main">
+    <header class="app-header" id="appHeader"></header>
+    <main class="app-content">
+      <div class="d-flex justify-content-between flex-wrap gap-2" id="pageHeaderMount"></div>
+
+      <ul class="nav nav-tabs mb-3 flex-nowrap overflow-auto">
+        <li class="nav-item"><button class="nav-link active" data-tab="dashboard">Dashboard</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="goals">Goals</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="reviews">Reviews</button></li>
+      </ul>
+
+      <div id="perfTabContent"></div>
+    </main>
+  </div>
+</div>
+
+<div class="modal fade" id="reviewModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Performance Review</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body" id="reviewModalBody"></div>
+      <div class="modal-footer"><button class="btn btn-light-2" data-bs-dismiss="modal">Close</button></div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+  renderSidebar("performance.html");
+  renderHeader("Performance", ["Dashboard", "Performance"]);
+</script>
+<script src="assets/js/performance.js"></script>
+</body>
+</html>

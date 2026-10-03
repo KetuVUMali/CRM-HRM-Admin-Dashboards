@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Announcements — NimbusHR</title>
+<link rel="icon" href="data:,">
+<link href="assets/vendor/fonts/inter.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/vendor/fontawesome/all.min.css" rel="stylesheet">
+<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="assets/css/themes.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-shell" id="appShell">
+  <aside class="app-sidebar" id="appSidebar"></aside>
+  <div class="sidebar-backdrop"></div>
+  <div class="app-main">
+    <header class="app-header" id="appHeader"></header>
+    <main class="app-content">
+      <div class="d-flex justify-content-between flex-wrap gap-2" id="pageHeaderMount"></div>
+
+      <ul class="nav nav-tabs mb-3 flex-nowrap overflow-auto">
+        <li class="nav-item"><button class="nav-link active" data-tab="announcements">Announcements</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="events">Events</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="birthdays">Birthdays &amp; Anniversaries</button></li>
+      </ul>
+
+      <div id="annTabContent"></div>
+    </main>
+  </div>
+</div>
+
+<div class="modal fade" id="announceModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">New Announcement</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <form id="announceForm">
+          <div class="mb-3"><label class="form-label">Title</label><input class="form-control" id="annTitle" required></div>
+          <div class="mb-3"><label class="form-label">Description</label><textarea class="form-control" id="annDesc" rows="3" required></textarea></div>
+          <div class="mb-3"><label class="form-label">Audience</label><select class="form-select" id="annAudience"><option>Everyone</option><option>Engineering</option><option>Sales</option><option>Human Resources</option><option>Finance</option></select></div>
+        </form>
+      </div>
+      <div class="modal-footer"><button class="btn btn-light-2" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" id="publishAnnBtn">Publish</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="eventModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Create Event</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <form id="eventForm">
+          <div class="mb-3"><label class="form-label">Event Name</label><input class="form-control" id="evName" required></div>
+          <div class="row g-3 mb-3">
+            <div class="col-6"><label class="form-label">Date</label><input type="date" class="form-control" id="evDate" value="2026-10-01" required></div>
+            <div class="col-6"><label class="form-label">Time</label><input type="time" class="form-control" id="evTime" value="10:00" required></div>
+          </div>
+          <div class="mb-3"><label class="form-label">Location</label><input class="form-control" id="evLocation" required></div>
+        </form>
+      </div>
+      <div class="modal-footer"><button class="btn btn-light-2" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" id="saveEventBtn">Create Event</button></div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+  renderSidebar("announcements.html");
+  renderHeader("Announcements", ["Dashboard", "Announcements"]);
+</script>
+<script src="assets/js/announcements.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assets — NimbusHR</title>
+<link rel="icon" href="data:,">
+<link href="assets/vendor/fonts/inter.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/vendor/fontawesome/all.min.css" rel="stylesheet">
+<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="assets/css/themes.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-shell" id="appShell">
+  <aside class="app-sidebar" id="appSidebar"></aside>
+  <div class="sidebar-backdrop"></div>
+  <div class="app-main">
+    <header class="app-header" id="appHeader"></header>
+    <main class="app-content">
+      <div class="d-flex justify-content-between flex-wrap gap-2" id="pageHeaderMount"></div>
+      <div id="kpiMount" class="row g-3 mb-4"></div>
+      <div id="filterMount" class="filter-bar mb-3"></div>
+      <div class="hrm-card">
+        <div class="table-wrap"><table class="hrm-table">
+          <thead><tr><th>Asset ID</th><th>Asset Name</th><th>Category</th><th>Serial Number</th><th>Assigned To</th><th>Assigned Date</th><th>Condition</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="astTbody"></tbody>
+        </table></div>
+        <div id="astPagination" class="px-3 pb-3"></div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div class="modal fade" id="assignModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title" id="assignModalTitle">Assign Asset</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <form id="assignForm">
+          <div class="mb-3"><label class="form-label">Assign To</label><select class="form-select" id="assignEmp"></select></div>
+          <div class="mb-3"><label class="form-label">Assignment Date</label><input type="date" class="form-control" id="assignDate" value="2026-09-19" required></div>
+          <div class="mb-3"><label class="form-label">Notes</label><textarea class="form-control" id="assignNotes" rows="2" placeholder="Optional notes"></textarea></div>
+        </form>
+      </div>
+      <div class="modal-footer"><button class="btn btn-light-2" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" id="confirmAssignBtn">Assign</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="addAssetModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Add New Asset</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <form id="addAssetForm">
+          <div class="mb-3"><label class="form-label">Asset Name</label><input class="form-control" id="newAssetName" required></div>
+          <div class="mb-3"><label class="form-label">Category</label><select class="form-select" id="newAssetCategory"></select></div>
+          <div class="mb-3"><label class="form-label">Serial Number</label><input class="form-control" id="newAssetSerial" required></div>
+          <div class="mb-3"><label class="form-label">Condition</label><select class="form-select" id="newAssetCondition"><option>Good</option><option>Fair</option><option>N/A</option></select></div>
+        </form>
+      </div>
+      <div class="modal-footer"><button class="btn btn-light-2" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" id="saveNewAssetBtn">Add Asset</button></div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+  renderSidebar("asset-management.html");
+  renderHeader("Assets", ["Dashboard", "Assets"]);
+</script>
+<script src="assets/js/assets-page.js"></script>
+</body>
+</html>

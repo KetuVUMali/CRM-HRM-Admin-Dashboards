@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leave Management — NimbusHR</title>
+<link rel="icon" href="data:,">
+<link href="assets/vendor/fonts/inter.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/vendor/fontawesome/all.min.css" rel="stylesheet">
+<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="assets/css/themes.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-shell" id="appShell">
+  <aside class="app-sidebar" id="appSidebar"></aside>
+  <div class="sidebar-backdrop"></div>
+  <div class="app-main">
+    <header class="app-header" id="appHeader"></header>
+    <main class="app-content">
+      <div class="d-flex justify-content-between flex-wrap gap-2" id="pageHeaderMount"></div>
+
+      <ul class="nav nav-tabs mb-3 flex-nowrap overflow-auto">
+        <li class="nav-item"><button class="nav-link active" data-tab="dashboard">Dashboard</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="apply">Apply Leave</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="requests">Leave Requests</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="types">Leave Types</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="holidays">Holiday Calendar</button></li>
+      </ul>
+
+      <div id="leaveTabContent"></div>
+    </main>
+  </div>
+</div>
+
+<script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+  renderSidebar("leave.html");
+  renderHeader("Leave Management", ["Dashboard", "Leave"]);
+</script>
+<script src="assets/js/leave.js"></script>
+</body>
+</html>

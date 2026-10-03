@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — NimbusHR</title>
+<link rel="icon" href="data:,">
+<link href="assets/vendor/fonts/inter.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/vendor/fontawesome/all.min.css" rel="stylesheet">
+<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="assets/css/themes.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-shell" id="appShell">
+  <aside class="app-sidebar" id="appSidebar"></aside>
+  <div class="sidebar-backdrop"></div>
+  <div class="app-main">
+    <header class="app-header" id="appHeader"></header>
+    <main class="app-content">
+      <div id="dashboardContent">
+        <div class="d-flex flex-column gap-3">
+          <div class="skeleton" style="height:90px;border-radius:14px;"></div>
+          <div class="row g-3">
+            <div class="col-md-3"><div class="skeleton" style="height:110px;"></div></div>
+            <div class="col-md-3"><div class="skeleton" style="height:110px;"></div></div>
+            <div class="col-md-3"><div class="skeleton" style="height:110px;"></div></div>
+            <div class="col-md-3"><div class="skeleton" style="height:110px;"></div></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/chartjs/chart.umd.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+  renderSidebar("dashboard.html");
+  renderHeader("Dashboard", ["Dashboard"]);
+</script>
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>

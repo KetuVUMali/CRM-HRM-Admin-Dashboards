@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recruitment — NimbusHR</title>
+<link rel="icon" href="data:,">
+<link href="assets/vendor/fonts/inter.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/vendor/fontawesome/all.min.css" rel="stylesheet">
+<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="assets/css/themes.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-shell" id="appShell">
+  <aside class="app-sidebar" id="appSidebar"></aside>
+  <div class="sidebar-backdrop"></div>
+  <div class="app-main">
+    <header class="app-header" id="appHeader"></header>
+    <main class="app-content">
+      <div class="d-flex justify-content-between flex-wrap gap-2" id="pageHeaderMount"></div>
+
+      <ul class="nav nav-tabs mb-3 flex-nowrap overflow-auto">
+        <li class="nav-item"><button class="nav-link active" data-tab="dashboard">Dashboard</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="jobs">Job Openings</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="candidates">Candidates</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="interviews">Interviews</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="offers">Offers</button></li>
+      </ul>
+
+      <div id="recruitTabContent"></div>
+    </main>
+  </div>
+</div>
+
+<div class="modal fade" id="jobModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Add Job Opening</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <form id="jobForm">
+          <div class="row g-3">
+            <div class="col-md-6"><label class="form-label">Job Title</label><input class="form-control" id="jobTitle" required></div>
+            <div class="col-md-6"><label class="form-label">Department</label><select class="form-select" id="jobDept"></select></div>
+            <div class="col-md-4"><label class="form-label">Location</label><input class="form-control" id="jobLoc" placeholder="e.g. Bengaluru HQ" required></div>
+            <div class="col-md-4"><label class="form-label">Employment Type</label><select class="form-select" id="jobType"><option>Full-Time</option><option>Contract</option><option>Internship</option></select></div>
+            <div class="col-md-4"><label class="form-label">Experience</label><input class="form-control" id="jobExp" placeholder="e.g. 3–5 years" required></div>
+            <div class="col-md-6"><label class="form-label">Salary Range</label><input class="form-control" id="jobSalary" placeholder="e.g. ₹12L – ₹18L" required></div>
+            <div class="col-md-6"><label class="form-label">Application Deadline</label><input type="date" class="form-control" id="jobDeadline" value="2026-11-01" required></div>
+            <div class="col-12"><label class="form-label">Job Description</label><textarea class="form-control" id="jobDesc" rows="3" required></textarea></div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer"><button class="btn btn-light-2" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" id="saveJobBtn">Publish Job</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="jobDetailModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content"><div class="modal-header"><h5 class="modal-title">Job Details</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body" id="jobDetailBody"></div>
+      <div class="modal-footer"><button class="btn btn-light-2" data-bs-dismiss="modal">Close</button></div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+  renderSidebar("recruitment.html");
+  renderHeader("Recruitment", ["Dashboard", "Recruitment"]);
+</script>
+<script src="assets/js/recruitment.js"></script>
+</body>
+</html>

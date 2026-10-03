@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Profile — NimbusHR</title>
+<link rel="icon" href="data:,">
+<link href="assets/vendor/fonts/inter.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/vendor/fontawesome/all.min.css" rel="stylesheet">
+<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="assets/css/themes.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-shell" id="appShell">
+  <aside class="app-sidebar" id="appSidebar"></aside>
+  <div class="sidebar-backdrop"></div>
+  <div class="app-main">
+    <header class="app-header" id="appHeader"></header>
+    <main class="app-content">
+      <div class="breadcrumb-row"><a href="dashboard.html">Dashboard</a><span class="sep">/</span><a href="employees.html">Employees</a><span class="sep">/</span><span class="current">Profile</span></div>
+
+      <div class="hrm-card mb-3" data-aos="fade-up">
+        <div class="hrm-card-body">
+          <div class="d-flex flex-wrap gap-3 align-items-center justify-content-between">
+            <div class="d-flex gap-3 align-items-center">
+              <img id="profAvatar" src="" class="avatar-lg" style="width:96px;height:96px;">
+              <div>
+                <h4 class="mb-0" id="profName">—</h4>
+                <div class="text-muted-2" id="profRole" style="font-size:.88rem;">—</div>
+                <div class="d-flex gap-2 mt-2" id="profBadges"></div>
+              </div>
+            </div>
+            <div class="text-md-end">
+              <div style="font-size:.78rem;color:var(--text-muted);">Employee ID</div>
+              <div class="fw-bold" id="profId">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="nav nav-tabs mb-3 flex-nowrap overflow-auto" id="profileTabs" style="white-space:nowrap;">
+        <li class="nav-item"><button class="nav-link active" data-tab="overview">Overview</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="personal">Personal</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="employment">Employment</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="attendance">Attendance</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="leave">Leave</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="payroll">Payroll</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="documents">Documents</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="assets">Assets</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="performance">Performance</button></li>
+        <li class="nav-item"><button class="nav-link" data-tab="activity">Activity</button></li>
+      </ul>
+
+      <div id="profileTabContent"></div>
+    </main>
+  </div>
+</div>
+
+<script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+  renderSidebar("employee-profile.html");
+  renderHeader("Employee Profile", ["Dashboard", "Profile"]);
+</script>
+<script src="assets/js/employee-profile.js"></script>
+</body>
+</html>
