@@ -3,149 +3,653 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sign in — NimbusHR</title>
+<title>Sign in — NimbusHR Enterprise Workforce OS</title>
+<meta name="description" content="Next-Gen Human Capital & Workforce Intelligence Platform. Unify attendance, payroll, talent acquisition, and performance.">
 <link rel="icon" href="data:,">
 <link href="assets/vendor/fonts/inter.css" rel="stylesheet">
 <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
 <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/vendor/fontawesome/all.min.css" rel="stylesheet">
 <link href="assets/css/themes.css" rel="stylesheet">
 <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
 
+<!-- Floating top action bar -->
+<div class="auth-top-toolbar">
+  <div class="auth-status-badge d-none d-sm-inline-flex">
+    <span class="beacon"></span>
+    <span>All Systems Operational</span>
+  </div>
+
+  <!-- Theme selector dropdown -->
+  <div class="dropdown">
+    <button class="btn btn-sm btn-light-2 dropdown-toggle d-flex align-items-center gap-1 shadow-sm" type="button" id="themeDropdownBtn" data-bs-toggle="dropdown" aria-expanded="false" title="Switch Theme">
+      <i class="bi bi-palette2"></i>
+      <span class="d-none d-md-inline" id="activeThemeName">Theme</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end shadow-lg" id="themeDropdownMenu" style="min-width: 200px;">
+      <li class="dropdown-header">Color Themes</li>
+      <!-- Populated dynamically via JS -->
+    </ul>
+  </div>
+
+  <!-- Quick Light/Dark toggle button -->
+  <button class="btn btn-sm btn-light-2 shadow-sm" type="button" id="quickModeToggle" title="Toggle Light/Dark Mode" aria-label="Toggle theme mode">
+    <i class="bi bi-moon-stars" id="modeIcon"></i>
+  </button>
+</div>
+
 <div class="auth-page">
+  <!-- LEFT COLUMN: CINEMATIC SHOWCASE -->
   <div class="auth-visual">
+    <div class="auth-glow-orb-1"></div>
+    <div class="auth-glow-orb-2"></div>
+
+    <!-- Header & Brand -->
     <div>
-      <div class="d-flex align-items-center gap-2 mb-5">
-        <div class="sidebar-brand-mark"><i class="bi bi-people-fill"></i></div>
+      <div class="d-flex align-items-center gap-2 mb-4">
+        <div class="sidebar-brand-mark shadow-lg">
+          <i class="bi bi-people-fill"></i>
+        </div>
         <div>
-          <div style="font-weight:800;font-size:1.15rem;">NimbusHR</div>
-          <div style="font-size:.72rem;opacity:.75;">Enterprise HRMS</div>
+          <div style="font-weight:800;font-size:1.35rem;letter-spacing:-0.02em;line-height:1.1;">NimbusHR</div>
+          <div style="font-size:.76rem;color:#94a3b8;font-weight:500;">Enterprise Workforce Intelligence OS</div>
         </div>
       </div>
-      <h2 style="font-weight:800;max-width:460px;line-height:1.3;position:relative;z-index:1;">Run your entire people operation from one dashboard.</h2>
-      <p style="opacity:.8;max-width:420px;font-size:.92rem;position:relative;z-index:1;">Attendance, leave, payroll, recruitment and performance — one connected workspace built for HR teams and the people they support.</p>
+
+      <div class="auth-brand-badge">
+        <i class="bi bi-stars sparkle"></i>
+        <span>v3.2 Quantum Release • AI-Powered Talent & Payroll</span>
+      </div>
+
+      <h1 class="auth-heading">Run your entire people operation with precision.</h1>
+      <p class="auth-subheading">A single mission-control workspace engineered for modern HR leaders, dynamic engineering teams, and enterprise scale.</p>
     </div>
-    <div class="auth-stat">
-      <div><div class="v">24</div><div class="l">Active employees</div></div>
-      <div><div class="v">8</div><div class="l">Departments</div></div>
-      <div><div class="v">94.2%</div><div class="l">Attendance rate</div></div>
-      <div><div class="v">6</div><div class="l">Open roles</div></div>
+
+    <!-- 3D Showcase Frame with Live Floating Telemetry Cards -->
+    <div class="auth-showcase-stage">
+      <!-- Floating Card 1: Attendance beacon -->
+      <div class="auth-float-card auth-float-card-1">
+        <div class="auth-float-icon bg-tint-info" style="background:rgba(56,189,248,0.15);color:#38bdf8;">
+          <i class="bi bi-clock-history"></i>
+        </div>
+        <div>
+          <div class="auth-float-val">98.6% On-Time</div>
+          <div class="auth-float-lbl">Real-time geo check-ins today</div>
+        </div>
+      </div>
+
+      <!-- Center 3D Isometric Art Mockup -->
+      <div class="auth-showcase-img-wrap">
+        <img src="assets/images/auth_illustration.jpg" alt="NimbusHR Dashboard Experience" class="auth-showcase-img" id="authHeroImg">
+      </div>
+
+      <!-- Floating Card 2: Payroll batch -->
+      <div class="auth-float-card auth-float-card-2">
+        <div class="auth-float-icon bg-tint-success" style="background:rgba(16,185,129,0.15);color:#10b981;">
+          <i class="bi bi-shield-check"></i>
+        </div>
+        <div>
+          <div class="auth-float-val">$428,500 Disbursed</div>
+          <div class="auth-float-lbl">Payroll batch verified • 0 flags</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Metrics & Social Proof -->
+    <div class="auth-bottom-row">
+      <div class="auth-stat-group">
+        <div class="stat-item">
+          <div class="v">24</div>
+          <div class="l">Active Employees</div>
+        </div>
+        <div class="stat-item">
+          <div class="v">8</div>
+          <div class="l">Departments</div>
+        </div>
+        <div class="stat-item">
+          <div class="v">99.98%</div>
+          <div class="l">System Uptime</div>
+        </div>
+        <div class="stat-item">
+          <div class="v">6</div>
+          <div class="l">Open Roles</div>
+        </div>
+      </div>
+
+      <div class="auth-social-proof">
+        <div class="auth-avatar-stack">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Patel">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Aarav Sharma">
+          <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="Anjali Nair">
+          <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Amitabh Sinha">
+        </div>
+        <div class="auth-proof-text">
+          <strong>Trusted by 12,000+ teams</strong>
+          <span style="color:#fbbf24;">★ ★ ★ ★ ★</span> 4.9/5 satisfaction
+        </div>
+      </div>
     </div>
   </div>
 
+  <!-- RIGHT COLUMN: INTERACTIVE AUTHENTICATION FORM -->
   <div class="auth-form-side">
     <div class="auth-form-box">
 
-      <!-- LOGIN VIEW -->
+      <!-- MAIN SIGN-IN CONTAINER -->
       <div id="loginView">
-        <h3 style="font-weight:800;">Welcome back</h3>
-        <p class="text-muted-2 mb-4" style="font-size:.88rem;">Sign in to continue to your workspace.</p>
-
-        <form id="loginForm" novalidate>
-          <div class="mb-3">
-            <label class="form-label">Work email</label>
-            <input type="email" class="form-control form-control-lg" style="font-size:.9rem;" placeholder="you@nimbushr.com" value="aarav.sharma@nimbushr.com" required>
-          </div>
-          <div class="mb-2">
-            <label class="form-label">Password</label>
-            <div class="input-group">
-              <input type="password" id="pwInput" class="form-control form-control-lg" style="font-size:.9rem;" placeholder="••••••••" value="demo1234" required>
-              <button class="btn btn-light-2" type="button" id="togglePw"><i class="bi bi-eye"></i></button>
-            </div>
-          </div>
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="rememberMe" checked>
-              <label class="form-check-label" for="rememberMe" style="font-size:.82rem;">Remember me</label>
-            </div>
-            <a href="#" id="showForgot" style="font-size:.82rem;font-weight:600;">Forgot password?</a>
-          </div>
-          <button type="submit" class="btn btn-primary btn-lg w-100 mb-3" style="font-size:.9rem;">Log in</button>
-          <div class="d-flex align-items-center gap-2 mb-3">
-            <hr class="flex-grow-1"><span class="text-muted-2" style="font-size:.75rem;">or</span><hr class="flex-grow-1">
-          </div>
-          <button type="button" class="btn btn-light-2 w-100 mb-4 d-flex align-items-center justify-content-center gap-2" style="font-size:.86rem;">
-            <i class="bi bi-google"></i> Continue with Google
-          </button>
-        </form>
-
-        <div class="mt-2">
-          <div class="d-flex align-items-center justify-content-between mb-2">
-            <span style="font-size:.78rem;font-weight:700;color:var(--text-secondary);">Quick demo access</span>
-            <span style="font-size:.7rem;color:var(--text-muted);">No password needed</span>
-          </div>
-          <div class="row g-2" id="demoRoleGrid"></div>
+        <div class="auth-form-head">
+          <h3>Welcome back</h3>
+          <p>Sign in to continue to your enterprise workspace.</p>
         </div>
+
+        <!-- Segmented Mode Control Tabs -->
+        <div class="auth-tabs-nav" id="authTabNav" role="tablist">
+          <button type="button" class="auth-tab-btn active" id="tabEmailBtn" data-target="panelEmail">
+            <i class="bi bi-envelope"></i> Work Email
+          </button>
+          <button type="button" class="auth-tab-btn" id="tabSSOBtn" data-target="panelSSO">
+            <i class="bi bi-shield-lock"></i> SSO
+          </button>
+          <button type="button" class="auth-tab-btn" id="tabDemoBtn" data-target="panelDemo">
+            <i class="bi bi-lightning-charge-fill text-warning"></i> Demo Personas
+            <span class="badge-pill">8</span>
+          </button>
+        </div>
+
+        <!-- TAB 1: STANDARD CREDENTIALS -->
+        <div id="panelEmail" class="auth-tab-panel">
+          <form id="loginForm" novalidate>
+            <div class="mb-3">
+              <label class="form-label" for="emailInput">Work email address</label>
+              <div class="auth-input-group">
+                <input type="email" id="emailInput" class="form-control" placeholder="aarav.sharma@nimbushr.com" value="aarav.sharma@nimbushr.com" required autocomplete="username">
+                <i class="bi bi-envelope auth-input-icon"></i>
+              </div>
+            </div>
+
+            <div class="mb-2">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <label class="form-label mb-0" for="pwInput">Password</label>
+                <a href="#" id="showForgot" style="font-size:.8rem;font-weight:600;">Forgot password?</a>
+              </div>
+              <div class="auth-input-group">
+                <input type="password" id="pwInput" class="form-control" placeholder="••••••••" value="demo1234" required autocomplete="current-password">
+                <i class="bi bi-lock auth-input-icon"></i>
+                <button type="button" class="auth-pw-toggle" id="togglePw" aria-label="Toggle password visibility">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+              <div class="auth-caps-warning" id="capsWarning">
+                <i class="bi bi-exclamation-triangle-fill me-1"></i> Caps Lock is ON
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-4 mt-2">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="rememberMe" checked>
+                <label class="form-check-label" for="rememberMe" style="font-size:.82rem;user-select:none;cursor:pointer;">
+                  Remember this device for 30 days
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 auth-submit-btn mb-3" id="submitLoginBtn">
+              <span>Sign in to Workspace</span>
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </form>
+
+          <div class="d-flex align-items-center gap-2 my-3">
+            <hr class="flex-grow-1 border-secondary opacity-25">
+            <span class="text-muted" style="font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;">Or continue with</span>
+            <hr class="flex-grow-1 border-secondary opacity-25">
+          </div>
+
+          <div class="row g-2 mb-2">
+            <div class="col-6">
+              <button type="button" class="auth-sso-btn w-100" id="googleSsoBtn">
+                <svg viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                  <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+                  <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.16 0 9.97 0 12s.45 3.84 1.25 5.42l4.03-3.15z"/>
+                  <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                </svg>
+                <span>Google</span>
+              </button>
+            </div>
+            <div class="col-6">
+              <button type="button" class="auth-sso-btn w-100" id="msftSsoBtn">
+                <svg viewBox="0 0 23 23">
+                  <path fill="#f35325" d="M1 1h10v10H1z"/>
+                  <path fill="#81bc06" d="M12 1h10v10H12z"/>
+                  <path fill="#05a6f0" d="M1 12h10v10H1z"/>
+                  <path fill="#ffba08" d="M12 12h10v10H12z"/>
+                </svg>
+                <span>Microsoft 365</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: ENTERPRISE SINGLE SIGN-ON (SSO) -->
+        <div id="panelSSO" class="auth-tab-panel" style="display:none;">
+          <div class="p-3 mb-3 rounded-3" style="background:var(--surface-2);border:1px solid var(--border-color);">
+            <div class="d-flex gap-2 align-items-center mb-1">
+              <i class="bi bi-shield-check text-primary fs-5"></i>
+              <strong style="font-size:.88rem;">SAML 2.0 / Okta / Azure AD</strong>
+            </div>
+            <p class="text-muted mb-0" style="font-size:.78rem;">Connect with your corporate credentials using your company domain.</p>
+          </div>
+
+          <form id="ssoForm">
+            <div class="mb-3">
+              <label class="form-label">Corporate Domain</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light-2" style="font-size:.85rem;border-color:var(--border-color);">https://</span>
+                <input type="text" id="ssoDomainInput" class="form-control" placeholder="yourcompany" value="nimbushr" required>
+                <span class="input-group-text bg-light-2" style="font-size:.85rem;border-color:var(--border-color);">.com</span>
+              </div>
+              <div class="form-text" style="font-size:.74rem;color:var(--text-muted);">We'll redirect you to your company's Identity Provider.</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 auth-submit-btn mb-3" id="ssoSubmitBtn">
+              <span>Continue with Enterprise SSO</span>
+              <i class="bi bi-box-arrow-in-right"></i>
+            </button>
+
+            <button type="button" class="btn btn-light-2 w-100 mb-2" id="directAzureBtn" style="font-size:.84rem;">
+              <i class="bi bi-microsoft me-2"></i>Sign in with Azure Active Directory
+            </button>
+            <button type="button" class="btn btn-light-2 w-100" id="directOktaBtn" style="font-size:.84rem;">
+              <i class="bi bi-key-fill me-2"></i>Sign in with Okta Verify
+            </button>
+          </form>
+        </div>
+
+        <!-- TAB 3: INSTANT DEMO PERSONAS -->
+        <div id="panelDemo" class="auth-tab-panel" style="display:none;">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div>
+              <span style="font-size:.82rem;font-weight:700;color:var(--text-primary);">Select a Demo Persona</span>
+              <div style="font-size:.72rem;color:var(--text-muted);">1-click instant login into specific role permissions</div>
+            </div>
+            <span class="badge bg-success-subtle text-success border border-success-subtle" style="font-size:.68rem;">Ready</span>
+          </div>
+
+          <div class="row g-2" id="demoRoleCardGrid">
+            <!-- Populated dynamically via JS with real avatars, titles, and tags -->
+          </div>
+        </div>
+
       </div>
 
-      <!-- FORGOT PASSWORD VIEW -->
+      <!-- FORGOT PASSWORD WIZARD (MULTI-STEP) -->
       <div id="forgotView" style="display:none;">
-        <h3 style="font-weight:800;">Reset your password</h3>
-        <p class="text-muted-2 mb-4" style="font-size:.88rem;">Enter your work email and we'll send you a reset link.</p>
-        <form id="forgotForm">
-          <div class="mb-3">
-            <label class="form-label">Email address</label>
-            <input type="email" class="form-control form-control-lg" style="font-size:.9rem;" placeholder="you@nimbushr.com" required>
+        <div class="auth-form-head">
+          <h3>Reset password</h3>
+          <p>We'll help you securely recover your enterprise access.</p>
+        </div>
+
+        <!-- Step 1: Email Form -->
+        <div id="forgotStep1">
+          <form id="forgotForm">
+            <div class="mb-3">
+              <label class="form-label">Registered work email</label>
+              <div class="auth-input-group">
+                <input type="email" id="forgotEmailInput" class="form-control" placeholder="you@nimbushr.com" value="aarav.sharma@nimbushr.com" required>
+                <i class="bi bi-envelope auth-input-icon"></i>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 auth-submit-btn mb-3" id="forgotSubmitBtn">
+              <span>Send 4-Digit Security Code</span>
+              <i class="bi bi-send"></i>
+            </button>
+            <button type="button" class="btn btn-light-2 w-100 back-to-login-btn" style="font-size:.85rem;">
+              <i class="bi bi-arrow-left me-1"></i> Back to sign in
+            </button>
+          </form>
+        </div>
+
+        <!-- Step 2: Simulated OTP verification -->
+        <div id="forgotStep2" style="display:none;">
+          <div class="p-3 mb-3 rounded-3 text-center" style="background:var(--brand-light);color:var(--brand);">
+            <i class="bi bi-shield-lock-fill fs-3 mb-1 d-block"></i>
+            <div style="font-weight:700;font-size:.88rem;">Verification Code Sent</div>
+            <div style="font-size:.76rem;opacity:.9;" id="otpRecipientLabel">Code sent to your work email. Demo OTP is <strong>4829</strong>.</div>
           </div>
-          <button type="submit" class="btn btn-primary btn-lg w-100 mb-3" style="font-size:.9rem;">Send reset link</button>
-          <button type="button" class="btn btn-light-2 w-100" id="backToLogin" style="font-size:.86rem;"><i class="bi bi-arrow-left me-1"></i>Back to login</button>
-        </form>
+
+          <form id="otpForm">
+            <div class="mb-3">
+              <label class="form-label text-center d-block">Enter 4-Digit Security Code</label>
+              <div class="d-flex justify-content-center gap-2">
+                <input type="text" class="form-control text-center fs-4 fw-bold otp-digit" maxlength="1" style="width:48px;height:52px;" value="4">
+                <input type="text" class="form-control text-center fs-4 fw-bold otp-digit" maxlength="1" style="width:48px;height:52px;" value="8">
+                <input type="text" class="form-control text-center fs-4 fw-bold otp-digit" maxlength="1" style="width:48px;height:52px;" value="2">
+                <input type="text" class="form-control text-center fs-4 fw-bold otp-digit" maxlength="1" style="width:48px;height:52px;" value="9">
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">New Password</label>
+              <input type="password" id="newPwInput" class="form-control" placeholder="••••••••" value="newPass2026!" required>
+              <div class="pw-strength-bar">
+                <div class="pw-strength-fill" id="pwStrengthFill" style="width:85%;background:#10b981;"></div>
+              </div>
+              <div class="d-flex justify-content-between mt-1" style="font-size:.7rem;color:var(--text-muted);">
+                <span>Password strength: <strong class="text-success" id="pwStrengthText">Strong</strong></span>
+                <span>Minimum 8 chars</span>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 auth-submit-btn mb-3">
+              <span>Set New Password & Sign In</span>
+              <i class="bi bi-check2-circle"></i>
+            </button>
+            <button type="button" class="btn btn-light-2 w-100 back-to-login-btn" style="font-size:.85rem;">
+              <i class="bi bi-arrow-left me-1"></i> Cancel
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- SECURITY & COMPLIANCE FOOTER -->
+      <div class="auth-compliance-footer">
+        <span><i class="bi bi-shield-fill-check text-success"></i> SOC-2 Type II</span>
+        <span><i class="bi bi-lock-fill text-primary"></i> 256-Bit SSL</span>
+        <span><i class="bi bi-patch-check-fill text-info"></i> GDPR Ready</span>
+        <span><i class="bi bi-award-fill text-warning"></i> ISO 27001</span>
       </div>
 
     </div>
   </div>
 </div>
 
+<!-- Floating Action Feedback Toast -->
+<div class="auth-toast" id="authToast">
+  <i class="bi bi-check-circle-fill text-success fs-5" id="toastIcon"></i>
+  <span id="toastMessage">Logged in successfully</span>
+</div>
+
 <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
 <script src="assets/js/data.js"></script>
-<script>
-  const demoMeta = {
-    employee: { icon: "bi-person" }, team_lead: { icon: "bi-people" }, manager: { icon: "bi-diagram-2" },
-    hr_executive: { icon: "bi-person-badge" }, hr_manager: { icon: "bi-person-workspace" },
-    payroll_manager: { icon: "bi-cash-coin" }, admin: { icon: "bi-shield" }, super_admin: { icon: "bi-shield-lock" }
-  };
-  document.getElementById("demoRoleGrid").innerHTML = roles.map(r => `
-    <div class="col-6 col-sm-4">
-      <button type="button" class="demo-role-btn w-100 d-flex flex-column align-items-center gap-1 py-2" data-role="${r}">
-        <i class="bi ${demoMeta[r].icon}"></i>${roleLabels[r]}
-      </button>
-    </div>`).join("");
+<script src="assets/js/components.js"></script>
 
-  document.querySelectorAll("[data-role]").forEach(btn => {
+<script>
+  // Role Badges and Color Definitions
+  const roleColors = {
+    super_admin: { badge: "bg-danger-subtle text-danger border-danger-subtle", desc: "Full Governance & System Control" },
+    admin: { badge: "bg-danger-subtle text-danger border-danger-subtle", desc: "Global IT & User Access" },
+    hr_manager: { badge: "bg-primary-subtle text-primary border-primary-subtle", desc: "Recruitment & Workforce Ops" },
+    hr_executive: { badge: "bg-info-subtle text-info border-info-subtle", desc: "Leave & Document Approvals" },
+    payroll_manager: { badge: "bg-success-subtle text-success border-success-subtle", desc: "Salaries, Tax & Compliance" },
+    manager: { badge: "bg-warning-subtle text-warning border-warning-subtle", desc: "Team Performance & Leave" },
+    team_lead: { badge: "bg-secondary-subtle text-secondary border-secondary-subtle", desc: "Sprint Tasks & Attendance" },
+    employee: { badge: "bg-light text-dark border", desc: "Self-Service, Clock In & Payslip" }
+  };
+
+  // Toast notification helper
+  function showToast(message, iconClass = "bi-check-circle-fill text-success", duration = 2400) {
+    const toast = document.getElementById("authToast");
+    const msgEl = document.getElementById("toastMessage");
+    const iconEl = document.getElementById("toastIcon");
+    msgEl.textContent = message;
+    iconEl.className = `bi ${iconClass} fs-5`;
+    toast.classList.add("show");
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, duration);
+  }
+
+  // Initialize Themes Dropdown & Quick Mode Toggle
+  function initThemeControls() {
+    const dropdownMenu = document.getElementById("themeDropdownMenu");
+    const activeNameEl = document.getElementById("activeThemeName");
+    const modeIconEl = document.getElementById("modeIcon");
+
+    const currentTheme = getEffectiveTheme();
+    const activeThemeObj = THEME_LIST.find(t => t.key === currentTheme) || THEME_LIST[0];
+    if (activeNameEl) activeNameEl.textContent = activeThemeObj.name;
+
+    // Update icon
+    if (modeIconEl) {
+      const isDark = activeThemeObj.scheme === "dark";
+      modeIconEl.className = isDark ? "bi bi-sun-fill text-warning" : "bi bi-moon-stars";
+    }
+
+    if (dropdownMenu) {
+      dropdownMenu.innerHTML = `<li class="dropdown-header">Color Palette</li>` + THEME_LIST.map(t => {
+        const isActive = t.key === currentTheme;
+        return `
+          <li>
+            <button class="dropdown-item d-flex align-items-center gap-2 ${isActive ? 'active' : ''}" type="button" data-theme-key="${t.key}">
+              <span style="width:14px;height:14px;border-radius:50%;background:${t.swatch};border:1px solid rgba(0,0,0,0.15);display:inline-block;"></span>
+              <span>${t.name}</span>
+              ${isActive ? '<i class="bi bi-check ms-auto"></i>' : ''}
+            </button>
+          </li>
+        `;
+      }).join("");
+
+      dropdownMenu.querySelectorAll("[data-theme-key]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const key = btn.getAttribute("data-theme-key");
+          setTheme(key);
+          initThemeControls();
+          showToast(`Applied ${key} theme`, "bi-palette2 text-primary");
+        });
+      });
+    }
+
+    // Quick Mode Toggle
+    const modeBtn = document.getElementById("quickModeToggle");
+    if (modeBtn) {
+      modeBtn.onclick = () => {
+        const cur = getEffectiveTheme();
+        if (cur === "dark-saas") {
+          setTheme(localStorage.getItem("hrmLightTheme") || "professional-blue");
+          showToast("Switched to Light Mode", "bi-sun-fill text-warning");
+        } else {
+          setTheme("dark-saas");
+          showToast("Switched to Dark SaaS Mode", "bi-moon-stars-fill text-primary");
+        }
+        initThemeControls();
+      };
+    }
+  }
+
+  // Populate Demo Role Cards
+  function populateDemoPersonas() {
+    const grid = document.getElementById("demoRoleCardGrid");
+    if (!grid) return;
+
+    grid.innerHTML = roles.map(r => {
+      const user = demoUsers[r] || { name: roleLabels[r], designation: roleLabels[r], avatar: "https://randomuser.me/api/portraits/men/32.jpg" };
+      const colorMeta = roleColors[r] || { badge: "bg-light text-dark", desc: roleLabels[r] };
+
+      return `
+        <div class="col-12 col-sm-6">
+          <div class="demo-role-card" data-role="${r}" title="Sign in as ${user.name} (${roleLabels[r]})">
+            <img src="${user.avatar}" alt="${user.name}" class="avatar">
+            <div class="meta">
+              <div class="name">${user.name}</div>
+              <div class="role-badge ${colorMeta.badge} border">${roleLabels[r]}</div>
+              <div style="font-size:.68rem;color:var(--text-muted);margin-top:2px;">${user.designation}</div>
+            </div>
+            <i class="bi bi-arrow-right-circle action-ic"></i>
+          </div>
+        </div>
+      `;
+    }).join("");
+
+    // Attach click events to cards
+    grid.querySelectorAll(".demo-role-card").forEach(card => {
+      card.addEventListener("click", () => {
+        const role = card.getAttribute("data-role");
+        const user = demoUsers[role] || { name: roleLabels[role] };
+        setCurrentRole(role);
+        showToast(`Signing in as ${user.name} (${roleLabels[role]})...`, "bi-person-check-fill text-success");
+        setTimeout(() => {
+          window.location.href = "dashboard.html";
+        }, 600);
+      });
+    });
+  }
+
+  // Tab switching logic
+  document.querySelectorAll(".auth-tab-btn").forEach(btn => {
     btn.addEventListener("click", () => {
-      setCurrentRole(btn.getAttribute("data-role"));
-      window.location.href = "dashboard.html";
+      document.querySelectorAll(".auth-tab-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const targetId = btn.getAttribute("data-target");
+      document.querySelectorAll(".auth-tab-panel").forEach(p => p.style.display = "none");
+      const targetPanel = document.getElementById(targetId);
+      if (targetPanel) targetPanel.style.display = "block";
     });
   });
 
-  document.getElementById("loginForm").addEventListener("submit", (e) => {
+  // Standard Login Submission
+  document.getElementById("loginForm").addEventListener("submit", function(e) {
     e.preventDefault();
-    if (!localStorage.getItem("hrmRole")) setCurrentRole("employee");
-    window.location.href = "dashboard.html";
+    const btn = document.getElementById("submitLoginBtn");
+    const email = document.getElementById("emailInput").value.trim().toLowerCase();
+
+    // Check if entered email matches any demo user
+    let matchingRole = "employee";
+    for (const [r, u] of Object.entries(demoUsers)) {
+      const emp = employees.find(e => e.id === u.id);
+      if (emp && emp.email.toLowerCase() === email) {
+        matchingRole = r;
+        break;
+      }
+    }
+    setCurrentRole(matchingRole);
+
+    btn.disabled = true;
+    btn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Authenticating...`;
+
+    showToast("Credentials verified. Entering workspace...", "bi-shield-check text-success");
+    setTimeout(() => {
+      window.location.href = "dashboard.html";
+    }, 700);
   });
 
-  document.getElementById("togglePw").addEventListener("click", function () {
-    const inp = document.getElementById("pwInput");
+  // SSO Submission
+  document.getElementById("ssoForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const btn = document.getElementById("ssoSubmitBtn");
+    const domain = document.getElementById("ssoDomainInput").value.trim() || "nimbushr";
+    btn.disabled = true;
+    btn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Connecting to ${domain}.com IdP...`;
+    setCurrentRole("employee");
+    showToast(`Redirecting to ${domain}.com SAML login...`, "bi-shield-lock text-info");
+    setTimeout(() => {
+      window.location.href = "dashboard.html";
+    }, 850);
+  });
+
+  document.getElementById("googleSsoBtn").addEventListener("click", () => {
+    setCurrentRole("employee");
+    showToast("Google Workspace SSO handshake verified...", "bi-google text-primary");
+    setTimeout(() => { window.location.href = "dashboard.html"; }, 650);
+  });
+
+  document.getElementById("msftSsoBtn").addEventListener("click", () => {
+    setCurrentRole("employee");
+    showToast("Microsoft Entra ID authenticated...", "bi-microsoft text-info");
+    setTimeout(() => { window.location.href = "dashboard.html"; }, 650);
+  });
+
+  document.getElementById("directAzureBtn").addEventListener("click", () => {
+    setCurrentRole("admin");
+    showToast("Connected to Azure Active Directory...", "bi-microsoft text-info");
+    setTimeout(() => { window.location.href = "dashboard.html"; }, 650);
+  });
+
+  document.getElementById("directOktaBtn").addEventListener("click", () => {
+    setCurrentRole("hr_manager");
+    showToast("Okta Verify token accepted...", "bi-key-fill text-warning");
+    setTimeout(() => { window.location.href = "dashboard.html"; }, 650);
+  });
+
+  // Password Reveal Toggle
+  const pwInput = document.getElementById("pwInput");
+  const togglePwBtn = document.getElementById("togglePw");
+  togglePwBtn.addEventListener("click", function() {
     const icon = this.querySelector("i");
-    if (inp.type === "password") { inp.type = "text"; icon.className = "bi bi-eye-slash"; }
-    else { inp.type = "password"; icon.className = "bi bi-eye"; }
+    if (pwInput.type === "password") {
+      pwInput.type = "text";
+      icon.className = "bi bi-eye-slash";
+    } else {
+      pwInput.type = "password";
+      icon.className = "bi bi-eye";
+    }
   });
 
+  // Caps Lock detection
+  const capsWarning = document.getElementById("capsWarning");
+  pwInput.addEventListener("keyup", (e) => {
+    if (e.getModifierState && e.getModifierState("CapsLock")) {
+      capsWarning.style.display = "block";
+    } else {
+      capsWarning.style.display = "none";
+    }
+  });
+
+  // Forgot Password Wizard
   document.getElementById("showForgot").addEventListener("click", (e) => {
     e.preventDefault();
     document.getElementById("loginView").style.display = "none";
     document.getElementById("forgotView").style.display = "block";
+    document.getElementById("forgotStep1").style.display = "block";
+    document.getElementById("forgotStep2").style.display = "none";
   });
-  document.getElementById("backToLogin").addEventListener("click", () => {
-    document.getElementById("forgotView").style.display = "none";
-    document.getElementById("loginView").style.display = "block";
+
+  document.querySelectorAll(".back-to-login-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.getElementById("forgotView").style.display = "none";
+      document.getElementById("loginView").style.display = "block";
+    });
   });
+
   document.getElementById("forgotForm").addEventListener("submit", (e) => {
     e.preventDefault();
-    alert("If an account exists for this email, a reset link has been sent. (Static demo — no email is actually sent.)");
-    document.getElementById("backToLogin").click();
+    const email = document.getElementById("forgotEmailInput").value;
+    document.getElementById("otpRecipientLabel").innerHTML = `Code sent to <strong>${email}</strong>. Use demo OTP <strong>4829</strong>.`;
+    document.getElementById("forgotStep1").style.display = "none";
+    document.getElementById("forgotStep2").style.display = "block";
+    showToast("4-Digit Code dispatched via simulated secure email", "bi-envelope-check text-info");
   });
+
+  // OTP Form Input auto-tab
+  document.querySelectorAll(".otp-digit").forEach((input, index, list) => {
+    input.addEventListener("input", (e) => {
+      if (input.value.length === 1 && index < list.length - 1) {
+        list[index + 1].focus();
+      }
+    });
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Backspace" && !input.value && index > 0) {
+        list[index - 1].focus();
+      }
+    });
+  });
+
+  document.getElementById("otpForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    showToast("Password updated successfully! Signing you in...", "bi-check2-circle text-success");
+    setTimeout(() => {
+      setCurrentRole("employee");
+      window.location.href = "dashboard.html";
+    }, 800);
+  });
+
+  // Init on load
+  initThemeControls();
+  populateDemoPersonas();
 </script>
 </body>
 </html>
